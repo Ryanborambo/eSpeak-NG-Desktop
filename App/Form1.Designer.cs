@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             button1 = new Button();
             groupBox1 = new GroupBox();
+            label1 = new Label();
             statusStrip1 = new StatusStrip();
             toolStripStatusLabel1 = new ToolStripStatusLabel();
             toolStrip1 = new ToolStrip();
@@ -41,6 +42,8 @@
             toolStripDropDownButton2 = new ToolStripDropDownButton();
             toolStripMenuItem6 = new ToolStripMenuItem();
             toolStripMenuItem7 = new ToolStripMenuItem();
+            toolStripMenuItem1 = new ToolStripMenuItem();
+            groupBox1.SuspendLayout();
             statusStrip1.SuspendLayout();
             toolStrip1.SuspendLayout();
             SuspendLayout();
@@ -58,6 +61,7 @@
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(label1);
             groupBox1.Location = new Point(12, 28);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(200, 174);
@@ -65,6 +69,15 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Customize Voice";
             groupBox1.Enter += groupBox1_Enter;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(6, 19);
+            label1.Name = "label1";
+            label1.Size = new Size(124, 15);
+            label1.TabIndex = 0;
+            label1.Text = "Isn't much in here yet.";
             // 
             // statusStrip1
             // 
@@ -74,12 +87,14 @@
             statusStrip1.Size = new Size(800, 22);
             statusStrip1.TabIndex = 2;
             statusStrip1.Text = "statusStrip1";
+            statusStrip1.ItemClicked += statusStrip1_ItemClicked;
             // 
             // toolStripStatusLabel1
             // 
             toolStripStatusLabel1.Name = "toolStripStatusLabel1";
             toolStripStatusLabel1.Size = new Size(42, 17);
             toolStripStatusLabel1.Text = "Ready ";
+            toolStripStatusLabel1.Click += toolStripStatusLabel1_Click;
             // 
             // toolStrip1
             // 
@@ -121,7 +136,7 @@
             // toolStripDropDownButton2
             // 
             toolStripDropDownButton2.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            toolStripDropDownButton2.DropDownItems.AddRange(new ToolStripItem[] { toolStripMenuItem6, toolStripMenuItem7 });
+            toolStripDropDownButton2.DropDownItems.AddRange(new ToolStripItem[] { toolStripMenuItem6, toolStripMenuItem7, toolStripMenuItem1 });
             toolStripDropDownButton2.Image = (Image)resources.GetObject("toolStripDropDownButton2.Image");
             toolStripDropDownButton2.ImageTransparentColor = Color.Magenta;
             toolStripDropDownButton2.Name = "toolStripDropDownButton2";
@@ -131,14 +146,23 @@
             // toolStripMenuItem6
             // 
             toolStripMenuItem6.Name = "toolStripMenuItem6";
-            toolStripMenuItem6.Size = new Size(180, 22);
-            toolStripMenuItem6.Text = "2";
+            toolStripMenuItem6.Size = new Size(278, 22);
+            toolStripMenuItem6.Text = "eSpeak-NG (Open in browser)";
+            toolStripMenuItem6.Click += toolStripMenuItem6_Click;
             // 
             // toolStripMenuItem7
             // 
             toolStripMenuItem7.Name = "toolStripMenuItem7";
-            toolStripMenuItem7.Size = new Size(180, 22);
-            toolStripMenuItem7.Text = "3";
+            toolStripMenuItem7.Size = new Size(278, 22);
+            toolStripMenuItem7.Text = "eSpeak-NG-desktop (Open in browser)";
+            toolStripMenuItem7.Click += toolStripMenuItem7_Click;
+            // 
+            // toolStripMenuItem1
+            // 
+            toolStripMenuItem1.Name = "toolStripMenuItem1";
+            toolStripMenuItem1.Size = new Size(278, 22);
+            toolStripMenuItem1.Text = "About...";
+            toolStripMenuItem1.Click += toolStripMenuItem1_Click;
             // 
             // Form1
             // 
@@ -150,8 +174,10 @@
             Controls.Add(groupBox1);
             Controls.Add(button1);
             Name = "Form1";
-            Text = "Form1";
+            Text = "eSpeak-NG-desktop (working title) by Rybo";
             Load += Form1_Load;
+            groupBox1.ResumeLayout(false);
+            groupBox1.PerformLayout();
             statusStrip1.ResumeLayout(false);
             statusStrip1.PerformLayout();
             toolStrip1.ResumeLayout(false);
@@ -174,5 +200,7 @@
         private ToolStripDropDownButton toolStripDropDownButton2;
         private ToolStripMenuItem toolStripMenuItem6;
         private ToolStripMenuItem toolStripMenuItem7;
+        private ToolStripMenuItem toolStripMenuItem1;
+        private Label label1;
     }
 }
